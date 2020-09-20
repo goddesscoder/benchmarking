@@ -10,14 +10,18 @@ for an arbitrary list of strings.
 
 # Your name here, and any other people/sources who helped.
 # Give credit where credit is due.
-__author__ = "???"
+__author__ = "Bethsheba Zebata"
 
 import sys
+# import time
 
 
 def alphabetize(string):
     """Returns alphabetized version of the string."""
     return "".join(sorted(string.lower()))
+
+
+# start = time.time()
 
 
 def find_anagrams(words):
@@ -27,12 +31,18 @@ def find_anagrams(words):
     Example:
     {'dgo': ['dog'], 'act': ['cat', 'act']}
     """
-    anagrams = {
-        alphabetize(word): [
-            w for w in words
-            if alphabetize(w) == alphabetize(word)]
-        for word in words}
+    anagrams = {}
+    for w in words:
+        new_word = alphabetize(w)
+        if new_word in anagrams:
+            anagrams[new_word].append(w)
+        else:
+            anagrams[new_word] = [w]
     return anagrams
+
+
+# end = time.time()
+# print('Used: {} seconds'.format(end-start))
 
 
 def main(args):
