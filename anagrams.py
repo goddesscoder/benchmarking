@@ -41,12 +41,7 @@ def find_anagrams(words):
     return anagrams
 
 
-# end = time.time()
-# print('Used: {} seconds'.format(end-start))
-
-
 def main(args):
-    # run find_anagrams() on first argument filename
     if len(args) < 1:
         print("Please specify a word file!")
         sys.exit(1)
